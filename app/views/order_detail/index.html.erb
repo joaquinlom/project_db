@@ -3,18 +3,17 @@
 <table>
   <thead>
     <tr>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Order  ID</th>
+      <th>Item ID</th>
+      <th>Quantity</th>
     </tr>
   </thead>
 
   <tbody>
     <% @order_details.each do |order_detail| %>
       <tr>
+        <td><%= link_to "#{order_detail.order_id}", order_detail_path(order_detail.order_id)  %></td>
         <td><%= link_to 'Show', order_detail %></td>
-        <td><%= link_to 'Edit', edit_order_detail_path(order_detail) %></td>
-        <td><%= link_to 'Destroy', order_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

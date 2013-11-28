@@ -6,7 +6,7 @@ ProjectDb::Application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#createwithFacebook'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
-  get 'order_details/show' , to:  'order_detail#index'
+  
   resources :customers
   resources :items
   resources :orders

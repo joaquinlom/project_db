@@ -1,6 +1,6 @@
 class Customer < ActiveRecord::Base
   has_many :orders
-  validates_uniqueness_of :customer_id, :message => "El ID del cliente debe ser unico"
+  #validates_uniqueness_of :customer_id, :message => "El ID del cliente debe ser unico"
   
   def new
   end
@@ -14,6 +14,8 @@ class Customer < ActiveRecord::Base
   def destroy
     
   end
-  
+  def full_name
+    "#{customer_first_name} #{customer_last_name}"
+  end
 
 end

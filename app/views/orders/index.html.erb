@@ -3,16 +3,29 @@
 <table>
   <thead>
     <tr>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th  width='10%'>Order ID</th>
+      <th width='10%'>Customer Name</th>
+      <th width='10%'>Date</th>
+      <th width='10%'>Shipped Date</th>
+      
+      <th width='10%'> Edit</th>
+      <th width='10%'> Destroy</th>
     </tr>
   </thead>
 
   <tbody>
     <% @orders.each do |order| %>
+    <% c = Customer.find_by_customer_id(order.custome_id)  
+        if c.nil? 
+          c = "No hay Cliente"
+          else
+          c = c.full_name
+          end%>
       <tr>
-        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to "#{order.order_id}", order_path(order.order_id) %></td>
+        <td><%= c %></td>
+        <td><%= order.order_date.to_formatted_s(:short) %></td>
+        <td><%= order.shipped_date.to_formatted_s(:short) %></td>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

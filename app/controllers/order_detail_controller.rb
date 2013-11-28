@@ -1,15 +1,26 @@
 class OrderDetailController < ApplicationController
-  before_action :set_order_detail, only: [:show, :edit, :update, :destroy]
-
+  before_action only: [:show, :edit, :update, :destroy]
+ 
   # GET /order_details
   # GET /order_details.json
   def index
-    @order_details = OrderDetails.all
+    @order_details = OrderDetails.uniq(:order_id)
   end
-
   # GET /order_details/1
   # GET /order_details/1.json
   def show
+    
+    @order_details = OrderDetails.where("order_id = ?",params[:id])
+    
+    @order_details.each do |order_details|
+      @orders = Order.where("order_id == ?", order_details.order_id)
+    end
+    @orders.each do |cus|
+        @customer = Customer.where("customer_id = ?", cus.custome_id )
+    end
+    
+   
+
   end
 
   # GET /order_details/new

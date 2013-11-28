@@ -1,4 +1,33 @@
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+	<div class="alert alert-dismissable alert-success">
+		<%= notice %>
+	</div>
+<% end %>
 
-<%= link_to 'Edit', edit_order_detail_path(@order_detail) %> |
-<%= link_to 'Back', order_details_path %>
+<h1> <%= @order_details[0].order_id %> </h1>
+<table class='table table-striped table-bordered table-hover'>
+  <thead>
+    <tr>
+      <th width='21%'>ID</th>
+      <th width='21%'>Apellido paterno</th>
+      <th width='21%'>Apellido materno</th>
+      <th width='8%'></th>
+      <th width='8%'></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%= order.order_id %></td>
+      <% @customer.each do |customer| %>
+      <td><%= customer.customer_first_name %></td>
+      <td><%= customer.customer_last_name %></td>
+      <%end%>
+    </tr>
+   <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Edit', edit_order_detail_path(@order_details) %> |
+<%= link_to 'Back', order_detail_index_path %>

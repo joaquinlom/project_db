@@ -1,15 +1,20 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action  only: [:show, :edit, :update, :destroy]
 
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.uniq(:order_id)
   end
 
   # GET /orders/1
   # GET /orders/1.json
   def show
+    
+    @order = Order.find_by_order_id(params[:id])
+    @order_details = OrderDetails.find_by_order_id(@order.order_id)
+    
+    
   end
 
   # GET /orders/new

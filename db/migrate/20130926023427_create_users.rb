@@ -6,7 +6,11 @@ class CreateUsers < ActiveRecord::Migration
       t.string :second_last_name
       t.string :email
       t.string :encrypted_pass
-
+      t.string :provider
+      t.string :uid
+      t.string :token
+      t.integer :user_id
+      
       t.timestamps
     end
   end
