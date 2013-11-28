@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+
+    <div class="main">
+  
+      <h3>Please Log In, or 
+      <%= link_to 'Sign up', new_user_path %></h3>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <a href="#" class="btn btn-lg btn-primary btn-block" onclick="window.location.href='auth/facebook/'">Facebook</a>
+        </div>
+      
+      </div>
+      <div class="login-or">
+        <hr class="hr-or">
+        <span class="span-or">or</span>
+      </div>
+    <%= form_tag sessions_path do %>
+	
+	<% flash.each do |name, msg| %>
+	  <%= content_tag :div, msg, :id => "flash_#{msg}", class: 'alert alert-dismissable alert-danger'%>
+	<% end %>
+	<span class='col-lg-2'>
+	</span>
+	<span class='col-lg-4'>
+       <div class="form-group">
+         <%= label_tag :nickname, 'Usuario' %>
+         <%= text_field_tag :nickname, '', class:'form-control' ,id:'inputUsernameEmail' %>
+        </div>
+        <div class="form-group">
+           <%= label_tag :password, 'Contraseña' %>
+           <%= password_field_tag :password, '', class:'form-control',  id:'inputPassword'%>
+         </div>
+    
+	<br>
+	<button type='submit' class='btn btn-primary btn-sm' > Entrar </button>
+	</span>
+  <% end %>
+   
+    </div>
+    
+  </div>
+</div>

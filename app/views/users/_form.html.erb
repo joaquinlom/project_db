@@ -1,0 +1,36 @@
+<%= form_for(@user) do |f| %>
+  
+  <%= render 'layouts/error_messages', object: @user %>
+
+  <div class='field'>
+    <%= f.label :nickname, 'Username' %>
+    <%= f.text_field :nickname, class:'form-control' %>
+  </div>
+  <div class='field'>
+    <%= f.label :name, 'Name' %><br>
+    <%= f.text_field :name, class:'form-control' %>
+  </div>
+  <div class='field'>
+    <%= f.label :last_name, 'Apellido paterno' %><br>
+    <%= f.text_field :last_name, class:'form-control' %>
+  </div>
+  <div class='field'>
+    <%= f.label :second_last_name, 'Apellido materno' %><br>
+    <%= f.text_field :second_last_name, class:'form-control' %>
+  </div>
+  <div class='field'>
+    <%= f.label :email, 'E-mail' %><br>
+    <%= f.text_field :email, class:'form-control' %>
+  </div>
+  <div class='field'>
+    <%= f.label :password, 'Contraseña' %><br>
+    <%= f.password_field :password, class:'form-control' %>
+  </div>
+  <div class='field'>
+    <%= f.label :password_confirmation, 'Confirmar ontraseña' %><br>
+    <%= f.password_field :password_confirmation, class:'form-control' %>
+  </div>
+
+  <br>
+  <button type='submit' class='btn btn-primary btn-sm'> Guardar </button>
+<% end %>

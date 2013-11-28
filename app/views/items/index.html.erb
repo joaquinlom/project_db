@@ -1,0 +1,28 @@
+<h1>Listing items</h1>
+
+<table>
+  <thead>
+    <tr>
+     <th width='21%'>Titulo</th>
+      <th width='21%'>Artista</th>
+      <th width='8%'></th>
+      <th width='8%'></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.title %></td>
+        <td><%= item.artist %></td>
+        <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

@@ -1,0 +1,52 @@
+<%= form_for(@customer) do |f| %>
+  <% if @customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+      <ul>
+      <% @customer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+  <% end %>
+      </ul>
+    </div>
+
+  <div class='field'>
+    <%= f.label :customer_first_name, 'First Name' %>
+    <%= f.text_field :customer_first_name, class:'form-control' %>
+  </div>
+  <div class='field'>
+    <%= f.label :customer_last_name, 'Last Name' %><br>
+    <%= f.text_field :customer_last_name, class:'form-control' %>
+  </div>
+  <div class='field'>
+    <%= f.label :customer_address, 'Direccion' %><br>
+    <%= f.text_field :customer_address, class:'form-control' %>
+  </div>
+  <div class='field'>
+    <%= f.label :customer_city, 'City' %><br>
+    <%= f.text_field :customer_city, class:'form-control' %>
+  </div>
+  <div class='field'>
+    <%= f.label :customer_state, 'Country' %><br>
+    <%= f.text_field :customer_state, class:'form-control' %>
+  </div>
+  <div class='field'>
+    <%= f.label :customer_zip, 'Zip' %><br>
+    <%= f.password_field :customer_zip, class:'form-control' %>
+  </div>
+  <div class='field'>
+    <%= f.label :customer_phone, 'Phone' %><br>
+    <%= f.password_field :customer_phone, class:'form-control' %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :customer_fax, 'Fax' %><br>
+    <%= f.password_field :customer_fax, class:'form-control' %>
+  </div>
+
+
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

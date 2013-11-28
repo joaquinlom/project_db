@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  order_id: 1
+  custome_id: 1
+  order_date: 2013-11-26 17:14:54
+  shipped_date: 2013-11-26 17:14:54
+
+two:
+  order_id: 1
+  custome_id: 1
+  order_date: 2013-11-26 17:14:54
+  shipped_date: 2013-11-26 17:14:54

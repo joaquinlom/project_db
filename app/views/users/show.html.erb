@@ -1,0 +1,27 @@
+<% if flash[:notice] %>
+	<div class="alert alert-dismissable alert-success">
+		<%= notice %>
+	</div>
+<% end %>
+
+<h1> <%= @user.nickname %> </h1>
+<br>
+<p>
+  <strong>Nombre:</strong>
+  <%= @user.full_name %>
+</p>
+<p>
+  <strong>E-mail:</strong>
+  <%= @user.email %>
+</p>
+<p>
+  <strong>Contraseña:</strong>
+  <% unless @user.password_hash.nil? %>
+  <%# @user.password.scan( /./ ) do |letra| %>
+    * * * * * * * * 
+  <% end %>
+</p>
+
+<br>
+<%= link_to 'Editar', edit_user_path(@user) %> |
+<%= link_to 'Volver', users_path %>
